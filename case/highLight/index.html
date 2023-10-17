@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高光划过</title>
+    <style>
+        .highLightBox {
+            width: 400px;
+            height: 200px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .highLightBox::before {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 300%;
+            width: 30%;
+            top: -200%;
+            left: -100%;
+            transform: rotate(45deg);
+            /* background: #fff; */
+            background: linear-gradient(to right, rgb(65, 105, 225), rgb(220, 20, 60));
+            ;
+        }
+        
+        .highLightBox:hover::before {
+            animation: crossed .5s linear;
+        }
+        
+        @keyframes crossed {
+            0% {
+                top: -200%;
+                left: -100%;
+            }
+            100% {
+                top: -50px;
+                left: 100%;
+            }
+        }
+        
+        img {
+            width: 400px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="highLightBox">
+        <img src="./1.png" alt="">
+    </div>
+</body>
+
+</html>
+
+</html>
+
+</html>
