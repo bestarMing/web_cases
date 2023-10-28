@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提示气泡</title>
+    <style>
+        body {
+            padding: 120px;
+            display: flex;
+        }
+        
+        .button {
+            background: blue;
+            padding: 10px;
+            color: #fff;
+            width: 50px;
+            margin: 0 20px;
+        }
+        
+        .tooltip {
+            position: relative;
+        }
+        
+        .tooltip:before,
+        .tooltip:after {
+            z-index: 1000000;
+            visibility: hidden;
+            -webkit-transition: .3s ease;
+            -moz-transition: .3s ease;
+            transition: .3s ease;
+            -webkit-transition-delay: 0ms;
+            -moz-transition-delay: 0ms;
+            transition-delay: 0ms;
+            pointer-events: none;
+            opacity: 0;
+        }
+        
+        .tooltip:hover:before,
+        .tooltip:hover:after {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .tooltip::before {
+            content: '';
+            position: absolute;
+            border: 5px solid transparent;
+        }
+        
+        .tooltip::after {
+            font-size: 14px;
+            line-height: normal;
+            position: absolute;
+            padding: 5px 10px;
+            content: attr(data-tooltip);
+            white-space: nowrap;
+            color: #fff;
+            border-radius: 3px;
+            background: #383838;
+        }
+        
+        [data-direction='down']::before {
+            top: calc(100% - 5px);
+            left: 25px;
+            border-bottom-color: #383838;
+        }
+        
+        [data-direction='down']:after {
+            top: calc(100% + 5px);
+            left: 0;
+        }
+        
+        [data-direction='right']::before {
+            top: calc(50%);
+            left: calc(100% - 5px);
+            /* transform: translate3d(0, -50%, 0); */
+            transform: rotate(270deg);
+            border-bottom-color: #383838;
+        }
+        
+        [data-direction='right']:after {
+            /* top: calc(100% + 5px); */
+            left: calc(100% + 5px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class=" button tooltip" data-tooltip="在下方" data-direction="down">
+        在下方
+    </div>
+    <div class=" button tooltip" data-tooltip="在右方" data-direction="right">
+        在右方
+    </div>
+</body>
+
+</html>
