@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立方体</title>
+    <style>
+        .cude {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite;
+        }
+        
+        .surface {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 300px;
+            height: 300px;
+            background: #666;
+            opacity: 0.6;
+            font-size: 60px;
+            line-height: 300px;
+            text-align: center;
+            font-weight: 600;
+            color: #fff;
+            border: 1px solid #fff;
+            transition: all .3s;
+        }
+        
+        .front {
+            transform: rotateY(0deg) translateZ(150px);
+        }
+        
+        .back {
+            transform: rotateY(-180deg) translateZ(150px);
+        }
+        
+        .left {
+            transform: rotateY(-90deg) translateZ(150px);
+        }
+        
+        .right {
+            transform: rotateY(90deg) translateZ(150px);
+        }
+        
+        .top {
+            transform: rotateX(90deg) translateZ(150px);
+        }
+        
+        .bottom {
+            transform: rotateX(-90deg) translateZ(150px);
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cude">
+        <div class="surface front">
+            前面
+        </div>
+        <div class="surface back">
+            后面
+        </div>
+        <div class="surface left">
+            左面
+        </div>
+        <div class="surface right">
+            右面
+        </div>
+        <div class="surface top">
+            上面
+        </div>
+        <div class="surface bottom">下面</div>
+    </div>
+</body>
+
+</html>
