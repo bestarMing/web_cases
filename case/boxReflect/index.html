@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水中倒影</title>
+    <style>
+        .reflect,
+        .box-reflect {
+            float: left;
+            margin: 0 auto;
+        }
+        
+        img {
+            width: 500px;
+            height: 300px;
+        }
+        
+        .reflect>img {
+            -webkit-box-reflect: below 0 -webkit-linear-gradient(top, rgba(250, 250, 250, 0), rgba(250, 250, 250, .0) 20%, rgba(250, 250, 250, .3));
+        }
+        
+        .box-reflect {
+            position: relative;
+        }
+        
+        .box-reflect:before,
+        .box-reflect:after {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 100%;
+            left: 0;
+            content: "";
+        }
+        
+        .box-reflect::before {
+            background: url(./1.png);
+            background-size: 100% 100%;
+            /* transform: scaleY(-1) */
+            transform: rotateX(-180deg);
+            opacity: 0.4;
+            filter: alpha(opacity='50');
+        }
+        /* .box-reflect:after {
+            background-image: -moz-linear-gradient(bottom, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 90%);
+            background-image: -o-linear-gradient(rgba(0, 0, 0, 0) 10%, rgb(0, 0, 0) 30%);
+            background-image: -webkit-linear-gradient(bottom, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 90%);
+            filter: progid: DXImageTransform.Microsoft.Gradient(gradientType=0, startColor=0, EndColorStr=#000000);
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div class="reflect">
+        <img src="./1.png" alt="">
+    </div>
+    <div class="box-reflect">
+        <img src="./1.png" alt="">
+    </div>
+</body>
+
+</html>
